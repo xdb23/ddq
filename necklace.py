@@ -12,7 +12,7 @@ if os.path.exists('jd_necklace.py'):
 	os.system('rm -rf jd_necklace.so')
 	os.system('mv jd_necklace.py jd_necklace.so')
 try:
-	from jd_necklace import *
+	from jd_necklace import start
 except:
 	print('未知错误...')
 	exit()
