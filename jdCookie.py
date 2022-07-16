@@ -24,7 +24,7 @@ def Name():
 		exit()
 
 def re_pin(r):
-	try: return compile(r'pin=(.*?);wskey=.*?;').findall(r)[0] if 'wskey=' in r else compile(r'pt_pin=(.*?);pt_key=.*?;').findall(r)[0]
+	try: return compile(r'pin=(.*?);wskey=.*?;').findall(r)[0] if 'wskey=' in r else compile(r'pt_key=.*?;pt_pin=(.*?);').findall(r)[0]
 	except: print(r, '\nck格式不正确，请检查\n')
 
 def re_key(r, e):
@@ -44,7 +44,7 @@ def JD_API_HOST(C):
 def COOKIE():
 	global ptkeyList, ptpinList
 	ck = JD_API_HOST(stack()[0][3])
-	ptkeyList = re_key('pt_pin=.*?;pt_key=.*?;', ck)
+	ptkeyList = re_key('pt_key=.*?;pt_pin=.*?;', ck)
 	ptpinList = re_key('pt_pin=(.*?);', ck)
 
 def WSKEY():
